@@ -15,6 +15,7 @@ class Solution:
                 streak += 1
         return max_streak
 
+
 s = Solution()
 
 print(s.lengthOfLongestSubstring("abb"))
