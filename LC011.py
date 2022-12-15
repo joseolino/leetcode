@@ -3,10 +3,14 @@ from typing import List
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         result = 0
-        for i, h in enumerate(height[:-1]):
-            for j, h2 in enumerate (height[i+1:], start = 1):
-                area = abs(min(h2, h) * j)
-                result = max(result, area)
+        i = 0
+        j = len(height) - 1
+        while(i != j):
+            result = max(result, abs(min(height[i], height[j]) * (j - i)))
+            if height[i] < height[j]:
+                i += 1
+            else:
+                j -= 1
         return result
 
 s = Solution()
